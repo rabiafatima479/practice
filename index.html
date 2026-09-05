@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Task Management Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <h1>Task Dashboard 📋</h1>
+            <p>Manage your tasks efficiently with local storage & real-time stats</p>
+        </header>
+
+        <section class="stats-section">
+            <div class="stat-card">
+                <h3>Total Tasks</h3>
+                <p id="statTotal">0</p>
+            </div>
+            <div class="stat-card">
+                <h3>Pending</h3>
+                <p id="statPending">0</p>
+            </div>
+            <div class="stat-card">
+                <h3>Completed</h3>
+                <p id="statCompleted">0</p>
+            </div>
+            <div class="stat-card">
+                <h3>High Priority</h3>
+                <p id="statHigh">0</p>
+            </div>
+        </section>
+
+        <div class="dashboard-grid">
+            <section class="form-section">
+                <h2 id="formHeading">Add New Task</h2>
+                <form id="taskForm">
+                    <input type="hidden" id="editTaskId">
+                    
+                    <div class="form-group">
+                        <label for="title">Task Title *</label>
+                        <input type="text" id="title" placeholder="Enter task title...">
+                        <small class="error-msg" id="titleError"></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Description (Optional)</label>
+                        <textarea id="description" placeholder="Enter task details..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="priority">Priority *</label>
+                        <select id="priority">
+                            <option value="">Select Priority</option>
+                            <option value="Low">Low</option>
+                            <option value="Medium">Medium</option>
+                            <option value="High">High</option>
+                        </select>
+                        <small class="error-msg" id="priorityError"></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dueDate">Due Date *</label>
+                        <input type="date" id="dueDate">
+                        <small class="error-msg" id="dateError"></small>
+                    </div>
+
+                    <button type="submit" class="btn-submit" id="submitBtn">Add Task</button>
+                </form>
+            </section>
+
+            <section class="tasks-section">
+                <h2>Your Tasks</h2>
+
+                <div class="controls-container">
+                    <div class="control-group">
+                        <input type="text" id="searchInput" placeholder="Search by title...">
+                    </div>
+
+                    <div class="filters-sort-row">
+                        <div class="control-group">
+                            <label for="statusFilter">Status:</label>
+                            <select id="statusFilter">
+                                <option value="All">All</option>
+                                <option value="Pending">Pending</option>
+                                <option value="Completed">Completed</option>
+                            </select>
+                        </div>
+
+                        <div class="control-group">
+                            <label for="priorityFilter">Priority:</label>
+                            <select id="priorityFilter">
+                                <option value="All">All</option>
+                                <option value="Low">Low</option>
+                                <option value="Medium">Medium</option>
+                                <option value="High">High</option>
+                            </select>
+                        </div>
+
+                        <div class="control-group">
+                            <label for="sortSelect">Sort By:</label>
+                            <select id="sortSelect">
+                                <option value="newest">Newest</option>
+                                <option value="oldest">Oldest</option>
+                                <option value="dueDate">Due Date</option>
+                                <option value="priority">Priority</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="task-list" id="taskList">
+                    </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
